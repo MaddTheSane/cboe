@@ -151,11 +151,11 @@
 		</dict>
 	</array>
 	<key>CFBundleExecutable</key>
-	<string>Blades of Exile</string>
+	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIconFile</key>
 	<string>BoE</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.spidweb.bladesofexile</string>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundlePackageType</key>
