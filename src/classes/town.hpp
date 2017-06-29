@@ -103,7 +103,7 @@ public:
 	bool is_cleaned_out();
 	
 	explicit cTown(cScenario& scenario, size_t dim);
-	void import_legacy(legacy::town_record_type& old);
+	void import_legacy(const legacy::town_record_type& old);
 	void reattach(cScenario& to);
 	void writeTerrainTo(std::ostream& file);
 	void readTerrainFrom(std::istream& file);

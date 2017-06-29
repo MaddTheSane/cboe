@@ -46,7 +46,7 @@ void cSpecial::writeTo(std::ostream& file, int n) const {
 	file << "\tgoto " << jumpto << '\n';
 }
 
-void cSpecial::import_legacy(legacy::special_node_type& old){
+void cSpecial::import_legacy(const legacy::special_node_type& old){
 	sd1 = old.sd1;
 	sd2 = old.sd2;
 	pic = old.pic;

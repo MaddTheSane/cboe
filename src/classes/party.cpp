@@ -198,7 +198,7 @@ void cParty::swap(cParty& other) {
 	}
 }
 
-void cParty::import_legacy(legacy::party_record_type& old, cUniverse& univ){
+void cParty::import_legacy(const legacy::party_record_type& old, cUniverse& univ){
 	scen_name = old.scen_name;
 	age = old.age;
 	gold = old.gold;
@@ -286,13 +286,13 @@ void cParty::import_legacy(legacy::party_record_type& old, cUniverse& univ){
 	total_dam_taken = old.total_dam_taken;
 }
 
-void cParty::import_legacy(legacy::stored_items_list_type& old,short which_list){
+void cParty::import_legacy(const legacy::stored_items_list_type& old,short which_list){
 	stored_items[which_list].resize(115);
 	for(int i = 0; i < 115; i++)
 		stored_items[which_list][i].import_legacy(old.items[i]);
 }
 
-void cParty::import_legacy(legacy::setup_save_type& old){
+void cParty::import_legacy(const legacy::setup_save_type& old){
 	for(int n = 0; n < 4; n++)
 		for(int i = 0; i < 64; i++)
 			for(int j = 0; j < 64; j++)
@@ -332,7 +332,7 @@ void cParty::cConvers::import_legacy(legacy::talk_save_type old, const cScenario
 	}
 }
 
-void cParty::cEncNote::import_legacy(int16_t(& old)[2], const cScenario& scenario) {
+void cParty::cEncNote::import_legacy(const int16_t(& old)[2], const cScenario& scenario) {
 	in_scen = scenario.scen_name;
 	// TODO: Need to verify that I have the correct offsets here.
 	switch(old[0] / 1000) {
@@ -354,7 +354,7 @@ void cParty::cEncNote::import_legacy(int16_t(& old)[2], const cScenario& scenari
 	}
 }
 
-void cParty::import_legacy(legacy::pc_record_type(& old)[6]) {
+void cParty::import_legacy(const  legacy::pc_record_type(& old)[6]) {
 	for(int i = 0; i < 6; i++) {
 		delete adven[i];
 		adven[i] = new cPlayer(*this);
@@ -587,7 +587,7 @@ location cParty::get_loc() const {
 }
 
 int cParty::calc_day() const {
-	return (age / 3700) + 1;
+	return (int)(age / 3700) + 1;
 }
 
 bool cParty::give_item(cItem item,int flags) {

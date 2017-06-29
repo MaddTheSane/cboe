@@ -374,7 +374,7 @@ void start_outdoor_combat(cOutdoors::cCreature encounter,location where,short nu
 
 bool pc_combat_move(location destination) {
 	std::string create_line;
-	short s1,s2,monst_exist;
+	short s1,s2=0,monst_exist;
 	bool keep_going = true,forced = false,check_f = false;
 	location monst_loc,store_loc;
 	eDirection dir;

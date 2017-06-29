@@ -2203,7 +2203,7 @@ bool pick_pc_name(short pc_num,cDialog* parent) {
 }
 
 mon_num_t pick_trapped_monst() {
-	short i;
+	short i = 0;
 	std::string sp;
 	cMonster get_monst;
 	

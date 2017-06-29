@@ -2717,7 +2717,7 @@ void affect_spec(eSpecCtx which_mode,cSpecial cur_node,short cur_spec_type,
 			// TODO: I think this is for compatibility with old scenarios? If so, remove it and just convert data on load.
 			// (Actually, I think the only compatibility thing is that it's <= instead of ==)
 			if(spec.ex2a <= 0) {
-				int i;
+				int i=0;
 				if(spec.ex1a == 2)
 					current_pc_picked_in_spec_enc = &univ.party;
 				else if(spec.ex1a == 1) {

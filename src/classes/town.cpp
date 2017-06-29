@@ -18,7 +18,7 @@
 #include "mathutil.hpp"
 #include "fileio.hpp"
 
-void cTown::import_legacy(legacy::town_record_type& old){
+void cTown::import_legacy(const legacy::town_record_type& old){
 	town_chop_time = old.town_chop_time;
 	town_chop_key = old.town_chop_key;
 	for(short i = 0; i < 4; i++){
