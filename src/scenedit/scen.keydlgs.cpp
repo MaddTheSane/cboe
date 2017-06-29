@@ -807,7 +807,7 @@ static bool edit_spec_enc_value(cDialog& me, std::string item_hit, node_stack_t&
 		PIC_FULL
 	};
 	std::string field = item_hit.substr(0, item_hit.find_first_of('-'));
-	char btn;
+	char btn = '\0';
 	eSpecType type = edit_stack.top().node.type;
 	if(field == "sdf1") btn = (*type).sd1_btn;
 	else if(field == "sdf2") btn = (*type).sd2_btn;
@@ -832,7 +832,7 @@ static bool edit_spec_enc_value(cDialog& me, std::string item_hit, node_stack_t&
 	eStrType strt;
 	short str_adj = 0;
 	const char* title;
-	cSpecial* node_to_change_to;
+	cSpecial* node_to_change_to = NULL;
 	switch(btn) {
 		case 'm':
 			choose_string = false;
