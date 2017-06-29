@@ -11,6 +11,7 @@
 #include "universe.hpp" // Include before Cocoa because the Cocoa header defines things that cause compilation errors in here
 #include <Cocoa/Cocoa.h>
 #include <sstream>
+#include <string>
 #include "boe.party.hpp"
 #include "boe.infodlg.hpp"
 #include "boe.consts.hpp"
@@ -40,13 +41,13 @@ MenuHandle actions_menu,music_menu,mage_spells_menu,priest_spells_menu;
 
 @interface MonsterWrapper : NSObject
 @property cMonster* monst;
-+(id) withMonster: (cMonster&) theMonster;
++(id) withMonster: (cMonster&) theMonster NS_RETURNS_RETAINED;
 @end
 
 @interface SpellWrapper : NSObject
 @property int num;
 @property eSkill type;
-+(id) withSpell:(int) num ofType:(eSkill) type;
++(id) withSpell:(int) num ofType:(eSkill) type NS_RETURNS_RETAINED;
 @end
 
 void hideMenuBar() {
