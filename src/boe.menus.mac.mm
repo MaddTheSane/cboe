@@ -153,7 +153,7 @@ void init_menubar() {
 	i = 0;
 	for(eMenu opt : help_choices)
 		setMenuCallback([help_menu itemAtIndex: i++], handler, @selector(menuChoice:), int(opt));
-	i = 0;
+	//i = 0;
 	
 	setMenuCallback([mage_spells_menu itemAtIndex: 0], handler, @selector(menuChoice:), int(eMenu::ABOUT_MAGE));
 	setMenuCallback([priest_spells_menu itemAtIndex: 0], handler, @selector(menuChoice:), int(eMenu::ABOUT_PRIEST));
@@ -302,7 +302,7 @@ void menu_activate() {
 +(id) withMonster:(cMonster&) theMonster {
 	MonsterWrapper* wrapper = [[MonsterWrapper alloc] init];
 	[wrapper setMonst: &theMonster];
-	return [wrapper retain];
+	return wrapper;
 }
 @end
 
@@ -313,7 +313,7 @@ void menu_activate() {
 	SpellWrapper* wrapper = [[SpellWrapper alloc] init];
 	[wrapper setType: type];
 	[wrapper setNum: num];
-	return [wrapper retain];
+	return wrapper;
 }
 @end
 
