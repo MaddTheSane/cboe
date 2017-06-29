@@ -17,7 +17,7 @@
 #include "oldstructs.hpp"
 #include "scenario.hpp"
 
-void cOutdoors::import_legacy(legacy::outdoor_record_type& old){
+void cOutdoors::import_legacy(const legacy::outdoor_record_type& old){
 	ambient_sound = AMBIENT_NONE;
 	// Collect a list of unused special nodes, to be used for fixing specials that could be triggered in a boat.
 	std::vector<int> unused_special_slots;

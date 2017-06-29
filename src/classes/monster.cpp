@@ -20,7 +20,7 @@
 #include "fileio.hpp"
 #include "spell.hpp"
 
-void cMonster::import_legacy(legacy::monster_record_type& old){
+void cMonster::import_legacy(const legacy::monster_record_type& old){
 	level = old.level;
 	m_name = std::string((char*) old.m_name, 26);
 	m_name.erase(m_name.begin() + m_name.find_first_of('\0'), m_name.end());

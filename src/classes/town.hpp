@@ -96,7 +96,7 @@ public:
 	long m_killed;
 	
 	template<typename T>
-	void import_legacy(T& old, int town_num);
+	void import_legacy(const T& old, int town_num);
 	void init_start();
 	void set_up_lights();
 	short light_obscurity(short x,short y); // Obscurity function used for calculating lighting

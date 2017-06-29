@@ -74,7 +74,7 @@ public:
 	int bg_out, bg_fight, bg_town, bg_dungeon;
 	
 	explicit cOutdoors(cScenario& scenario);
-	void import_legacy(legacy::outdoor_record_type& old);
+	void import_legacy(const legacy::outdoor_record_type& old);
 	void reattach(cScenario& to);
 };
 
