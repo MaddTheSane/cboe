@@ -898,7 +898,7 @@
 				91B3EECD0F969B7000BF5B67 /* ScenEd */,
 				91CC17281B421BD5003D9A69 /* test */,
 				91B3EF220F969CA300BF5B67 /* rsrc */,
-				914B2AA018E7E4A3007B6799 /* Linked Frameworks */,
+				914B2AA018E7E4A3007B6799 /* Frameworks */,
 				911F2DA11B98F45100E3102E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -1112,7 +1112,7 @@
 			name = headers;
 			sourceTree = "<group>";
 		};
-		914B2AA018E7E4A3007B6799 /* Linked Frameworks */ = {
+		914B2AA018E7E4A3007B6799 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				DCCA42011A8C467800E6A9A5 /* libz.dylib */,
@@ -1134,7 +1134,7 @@
 				910D9CA31B36439100414B17 /* libboost_thread.dylib */,
 				91ACCE82190032E000FAEF8B /* fix_dylibs.sh */,
 			);
-			name = "Linked Frameworks";
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		91B3EECD0F969B7000BF5B67 /* ScenEd */ = {
@@ -1979,10 +1979,12 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -1991,7 +1993,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				FRAMEWORK_SEARCH_PATHS = /Library/Frameworks;
+				FRAMEWORK_SEARCH_PATHS = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				GCC_ENABLE_OBJC_EXCEPTIONS = NO;
 				GCC_ENABLE_PASCAL_STRINGS = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
@@ -2017,7 +2019,7 @@
 				GCC_WARN_UNUSED_PARAMETER = YES;
 				GCC_WARN_UNUSED_VALUE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks @loader_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"\"$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/lib/\"",
 					/usr/local/lib,
@@ -2057,10 +2059,12 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -2068,7 +2072,7 @@
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = /Library/Frameworks;
+				FRAMEWORK_SEARCH_PATHS = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				GCC_ENABLE_OBJC_EXCEPTIONS = NO;
 				GCC_ENABLE_PASCAL_STRINGS = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
@@ -2093,7 +2097,7 @@
 				GCC_WARN_UNUSED_PARAMETER = YES;
 				GCC_WARN_UNUSED_VALUE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks @loader_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"\"$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/lib/\"",
 					/usr/local/lib,
@@ -2128,21 +2132,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(LOCAL_LIBRARY_DIR)/Frameworks",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/BoE-Info.plist";
-				INSTALL_PATH = "$(HOME)/Applications";
+				INSTALL_PATH = "$(LOCAL_APPS_DIR)/Blades Of Exile";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-lboost_system",
 					"-lboost_filesystem",
 					"$(OTHER_LDFLAGS_QUOTED_FOR_PROJECT_1)",
-					"-lCommon",
-					"-lCommon-Party",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.spidweb.bladesofexile;
 				PRODUCT_NAME = "Blades of Exile";
@@ -2154,20 +2153,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COPY_PHASE_STRIP = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(LOCAL_LIBRARY_DIR)/Frameworks",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				INFOPLIST_FILE = "$(SRCROOT)/BoE-Info.plist";
-				INSTALL_PATH = "$(HOME)/Applications";
+				INSTALL_PATH = "$(LOCAL_APPS_DIR)/Blades Of Exile";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-lboost_system",
 					"-lboost_filesystem",
 					"$(OTHER_LDFLAGS_QUOTED_FOR_PROJECT_1)",
-					"-lCommon",
-					"-lCommon-Party",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.spidweb.bladesofexile;
 				PRODUCT_NAME = "Blades of Exile";
@@ -2209,7 +2203,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/lib";
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -2231,7 +2224,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/lib";
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -2240,20 +2232,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(LOCAL_LIBRARY_DIR)/Frameworks",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_DYNAMIC_NO_PIC = NO;
 				INFOPLIST_FILE = "$(SRCROOT)/pcedit/BoECharEd-Info.plist";
-				INSTALL_PATH = "$(HOME)/Applications";
+				INSTALL_PATH = "$(LOCAL_APPS_DIR)/Blades Of Exile";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-lboost_system",
 					"-lboost_filesystem",
 					"$(OTHER_LDFLAGS_QUOTED_FOR_PROJECT_1)",
-					"-lCommon-Party",
-					"-lCommon",
 				);
 				OTHER_LDFLAGS_QUOTED_FOR_TARGET_1 = "-L\"$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/\"";
 				PRODUCT_BUNDLE_IDENTIFIER = com.spidweb.boepceditor;
@@ -2266,20 +2253,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COPY_PHASE_STRIP = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(LOCAL_LIBRARY_DIR)/Frameworks",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/pcedit/BoECharEd-Info.plist";
-				INSTALL_PATH = "$(HOME)/Applications";
+				INSTALL_PATH = "$(LOCAL_APPS_DIR)/Blades Of Exile";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-lboost_system",
 					"-lboost_filesystem",
 					"$(OTHER_LDFLAGS_QUOTED_FOR_PROJECT_1)",
-					"-lCommon-Party",
-					"-lCommon",
 				);
 				OTHER_LDFLAGS_QUOTED_FOR_TARGET_1 = "-L\"$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/\"";
 				PRODUCT_BUNDLE_IDENTIFIER = com.spidweb.boepceditor;
@@ -2292,23 +2273,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(LOCAL_LIBRARY_DIR)/Frameworks",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_DYNAMIC_NO_PIC = NO;
 				INFOPLIST_FILE = "$(SRCROOT)/scenedit/BoEScenEd-Info.plist";
-				INSTALL_PATH = "$(HOME)/Applications";
+				INSTALL_PATH = "$(LOCAL_APPS_DIR)/Blades Of Exile";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-lboost_system",
 					"-lboost_filesystem",
 					"$(OTHER_LDFLAGS_QUOTED_FOR_PROJECT_1)",
-					"-lCommon",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.spidweb.boesceneditor;
 				PRODUCT_NAME = "BoE Scenario Editor";
-				SDKROOT = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -2317,23 +2293,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COPY_PHASE_STRIP = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(LOCAL_LIBRARY_DIR)/Frameworks",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/scenedit/BoEScenEd-Info.plist";
-				INSTALL_PATH = "$(HOME)/Applications";
+				INSTALL_PATH = "$(LOCAL_APPS_DIR)/Blades Of Exile";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-lboost_system",
 					"-lboost_filesystem",
 					"$(OTHER_LDFLAGS_QUOTED_FOR_PROJECT_1)",
-					"-lCommon",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.spidweb.boesceneditor;
 				PRODUCT_NAME = "BoE Scenario Editor";
-				SDKROOT = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

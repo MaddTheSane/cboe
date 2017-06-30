@@ -22,7 +22,7 @@ static NSImage* imageFromURL(CFURLRef url){
 	
 	theImage = CGImageSourceCreateImageAtIndex(imageSource, 0, nullptr);
 	if(theImage == nil) {
-		CFRelease(imageSource);
+		CFRelease( imageSource );
 		return nil;
 	}
 	
@@ -48,7 +48,10 @@ static NSImage* imageFromURL(CFURLRef url){
 }
 
 Cursor::Cursor(fs::path path, float hotSpotX, float hotSpotY){
-	NSImage *img = imageFromURL((CFURLRef)[NSURL fileURLWithPath:[[NSFileManager defaultManager] stringWithFileSystemRepresentation:path.c_str() length:strlen(path.c_str())]]);
+	NSString *ref = [[NSFileManager defaultManager] stringWithFileSystemRepresentation:path.c_str() length:strlen(path.c_str())];
+	CFURLRef imgPath = (CFURLRef)[NSURL fileURLWithPath:ref];
+	
+	NSImage *img = imageFromURL(imgPath);
 	NSCursor *cursor = [[NSCursor alloc] initWithImage:img hotSpot:NSMakePoint(hotSpotX, hotSpotY)];
 	[img release];
 	
