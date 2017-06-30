@@ -586,7 +586,7 @@ static bool edit_out_wand_monst(cDialog& me, std::string hit, short which, cOutd
 	me.untoast();
 	save_out_wand(me, which, wand, 100);
 	std::string fld = hit.substr(7);
-	short i;
+	short i=0;
 	if(fld[0] == 'f') {
 		i = choose_text(STRT_MONST,wand.monst[fld[3] - '1']-1,&me,"Choose Which Monster:") + 1;
 		if(i >= 0) wand.monst[fld[3] - '1'] = i;
