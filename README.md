@@ -83,8 +83,7 @@ Notes and oddities:
 Helpful Links
 -------------
 * [BoE Forum at Spiderweb
-  Software](http://spiderwebforums.ipbhost.com/index.php?/forum/12-blades-
-  of-exile/)
+  Software](http://spiderwebforums.ipbhost.com/index.php?/forum/12-blades-of-exile/)
 * [Official IRC channel](http://webchat.freenode.net/?channels=%23openboe) (or join
 #openboe on irc.freenode.net)
 * [Original Game
