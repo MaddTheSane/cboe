@@ -93,7 +93,7 @@ void adjust_monst_menu() {
 static void setMenuCallback(NSMenuItem* item, id targ, SEL selector, int num) {
 	[item setTarget: targ];
 	[item setAction: selector];
-	[item setRepresentedObject: [[NSNumber numberWithInt: num] retain]];
+	[item setRepresentedObject: [NSNumber numberWithInt: num]];
 }
 
 void init_menubar() {
@@ -133,7 +133,7 @@ void init_menubar() {
 		eMenu::NONE, eMenu::HELP_HINTS, eMenu::HELP_SPELLS,
 	};
 	
-	MenuHandler* handler = [[[MenuHandler alloc] init] retain];
+	MenuHandler* handler = [[MenuHandler alloc] init];
 	setMenuCallback([apple_menu itemWithTitle: @"About Blades of Exile"], handler, @selector(menuChoice:), int(eMenu::ABOUT));
 	setMenuCallback([apple_menu itemWithTitle: @"Preferences…"], handler, @selector(menuChoice:), int(eMenu::PREFS));
 	setMenuCallback([apple_menu itemWithTitle: @"Quit Blades of Exile"], handler, @selector(menuChoice:), int(eMenu::QUIT));

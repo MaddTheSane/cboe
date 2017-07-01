@@ -29,7 +29,7 @@ MenuHandle apple_menu, file_menu, reg_menu, extra_menu, items_menu[4];
 @end
 
 @interface ItemWrapper : NSObject
-+(id) withItem:(int) theItem NS_RETURNS_RETAINED;
++(instancetype) withItem:(int) theItem NS_RETURNS_RETAINED;
 -(class cItem&) item;
 -(void) setItem:(int) theItem;
 @end
@@ -37,7 +37,7 @@ MenuHandle apple_menu, file_menu, reg_menu, extra_menu, items_menu[4];
 static void setMenuCallback(NSMenuItem* item, id targ, SEL selector, int num) {
 	[item setTarget: targ];
 	[item setAction: selector];
-	[item setRepresentedObject: [[NSNumber numberWithInt: num] retain]];
+	[item setRepresentedObject: [NSNumber numberWithInt: num]];
 }
 
 void init_menubar() {
@@ -72,7 +72,7 @@ void init_menubar() {
 		eMenu::NONE, eMenu::LEAVE_SCENARIO, eMenu::SET_SDF,
 	};
 	
-	MenuHandler* handler = [[[MenuHandler alloc] init] retain];
+	MenuHandler* handler = [[MenuHandler alloc] init];
 	setMenuCallback([apple_menu itemWithTitle: @"About BoE Character Editor"], handler, @selector(menuChoice:), int(eMenu::ABOUT));
 	setMenuCallback([apple_menu itemWithTitle: @"Quit BoE Character Editor"], handler, @selector(menuChoice:), int(eMenu::QUIT));
 	setMenuCallback([[[menu_bar_handle itemWithTitle: @"Help"] submenu] itemAtIndex: 0], handler, @selector(menuChoice:), int(eMenu::HELP_TOC));

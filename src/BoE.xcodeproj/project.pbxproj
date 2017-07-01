@@ -137,15 +137,15 @@
 		919B13A21BBCDF14009905A4 /* monst_legacy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 919B13A11BBCDE18009905A4 /* monst_legacy.cpp */; };
 		919B13A41BBD8854009905A4 /* item_legacy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 919B13A31BBD8849009905A4 /* item_legacy.cpp */; };
 		919B13A61BBDE986009905A4 /* spec_legacy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 919B13A51BBDE985009905A4 /* spec_legacy.cpp */; };
-		919CC2481B3772F300273FDA /* creatlist.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 91AC620A0FA2853700EEAE67 /* creatlist.cpp */; };
-		919CC2491B3772FB00273FDA /* creature.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 914698FE1A747C4500F20F5E /* creature.cpp */; };
+		919CC2481B3772F300273FDA /* creatlist.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 91AC620A0FA2853700EEAE67 /* creatlist.cpp */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		919CC2491B3772FB00273FDA /* creature.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 914698FE1A747C4500F20F5E /* creature.cpp */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		919CC24B1B37730300273FDA /* item.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 91279D3D0F9D1D6A007B0D52 /* item.cpp */; };
-		919CC24C1B37730900273FDA /* living.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 914698FB1A7362D900F20F5E /* living.cpp */; };
+		919CC24C1B37730900273FDA /* living.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 914698FB1A7362D900F20F5E /* living.cpp */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		919CC24D1B37730E00273FDA /* location.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 91279BE10F9D0F73007B0D52 /* location.cpp */; };
 		919CC24E1B37731400273FDA /* monster.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 91279CC10F9D19DA007B0D52 /* monster.cpp */; };
 		919CC24F1B37731800273FDA /* outdoors.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 91E5C79D0F9F60FA00C21460 /* outdoors.cpp */; };
-		919CC2501B37731D00273FDA /* party.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 913D05B50FA1E9E300184C18 /* party.cpp */; };
-		919CC2511B37732100273FDA /* pc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 913D05BB0FA1EA0A00184C18 /* pc.cpp */; };
+		919CC2501B37731D00273FDA /* party.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 913D05B50FA1E9E300184C18 /* party.cpp */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		919CC2511B37732100273FDA /* pc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 913D05BB0FA1EA0A00184C18 /* pc.cpp */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		919CC2531B37732C00273FDA /* scenario.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 91279C580F9D1253007B0D52 /* scenario.cpp */; };
 		919CC2561B37733E00273FDA /* shop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 91FDB5791A4E774E00DE5983 /* shop.cpp */; };
 		919CC2571B37734000273FDA /* special.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 91279CC60F9D1A02007B0D52 /* special.cpp */; };
@@ -153,7 +153,7 @@
 		919CC2591B37734C00273FDA /* talking.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 91E5C7B70F9F619D00C21460 /* talking.cpp */; };
 		919CC25A1B37735100273FDA /* terrain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 91279C660F9D12D6007B0D52 /* terrain.cpp */; };
 		919CC25C1B37735C00273FDA /* town.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 91E5C7980F9F60EC00C21460 /* town.cpp */; };
-		919CC25E1B37736900273FDA /* universe.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 91AC61C50FA2729900EEAE67 /* universe.cpp */; };
+		919CC25E1B37736900273FDA /* universe.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 91AC61C50FA2729900EEAE67 /* universe.cpp */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		919CC25F1B37736E00273FDA /* vehicle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 91279C750F9D15E5007B0D52 /* vehicle.cpp */; };
 		919CC2601B37737200273FDA /* estreams.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 91E1862B1B2B2AC0006A99EA /* estreams.cpp */; };
 		919CC2611B37738100273FDA /* gzstream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 91BFA3DE19033E01001686E4 /* gzstream.cpp */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
@@ -173,7 +173,7 @@
 		919CC2701B3773EC00273FDA /* scrollbar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9191460018E63D8E005CF3A4 /* scrollbar.cpp */; };
 		919CC2711B3773F300273FDA /* cursors.mac.mm in Sources */ = {isa = PBXBuildFile; fileRef = 91C688E70FD702B9000F6D01 /* cursors.mac.mm */; };
 		919CC2721B3773F800273FDA /* fileio.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 91E30F2D1A7481C20057C54A /* fileio.cpp */; };
-		919CC2731B3773FD00273FDA /* fileio_party.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 91E30F2A1A74819B0057C54A /* fileio_party.cpp */; };
+		919CC2731B3773FD00273FDA /* fileio_party.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 91E30F2A1A74819B0057C54A /* fileio_party.cpp */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		919CC2741B37740200273FDA /* fileio_scen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 91E5C7A60F9F615400C21460 /* fileio_scen.cpp */; };
 		919CC2751B37740A00273FDA /* graphtool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 91B3F10A0F9779C300BF5B67 /* graphtool.cpp */; };
 		919CC2761B37741000273FDA /* mathutil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 91B3F11E0F97801F00BF5B67 /* mathutil.cpp */; };
@@ -186,7 +186,7 @@
 		919CC27D1B37743700273FDA /* tarball.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 91BFA3D81902AD78001686E4 /* tarball.cpp */; };
 		919CC27E1B37743B00273FDA /* undo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 912283C80FD0E16C00B21642 /* undo.cpp */; };
 		919CC27F1B37744000273FDA /* winutil.mac.mm in Sources */ = {isa = PBXBuildFile; fileRef = 919145FF18E63B70005CF3A4 /* winutil.mac.mm */; };
-		919CC2801B37744800273FDA /* pc.editors.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 91B3EF070F969BD300BF5B67 /* pc.editors.cpp */; };
+		919CC2801B37744800273FDA /* pc.editors.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 91B3EF070F969BD300BF5B67 /* pc.editors.cpp */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		919DDBFC19006CF2003E7FED /* libboost_filesystem.dylib in Copy Libraries and Frameworks */ = {isa = PBXBuildFile; fileRef = 919DDBFA19006CC9003E7FED /* libboost_filesystem.dylib */; };
 		919DDBFD19006CF2003E7FED /* libboost_system.dylib in Copy Libraries and Frameworks */ = {isa = PBXBuildFile; fileRef = 919DDBFB19006CC9003E7FED /* libboost_system.dylib */; };
 		919DDBFE19006CF6003E7FED /* libboost_filesystem.dylib in Copy Libraries and Frameworks */ = {isa = PBXBuildFile; fileRef = 919DDBFA19006CC9003E7FED /* libboost_filesystem.dylib */; };
@@ -2131,6 +2131,7 @@
 		2BF04AC50BF518D4006C0831 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -2152,6 +2153,7 @@
 		2BF04AC60BF518D4006C0831 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
@@ -2189,6 +2191,7 @@
 		919CC22F1B37721400273FDA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/lib";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -2202,6 +2205,7 @@
 		919CC2301B37721400273FDA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/lib";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -2210,6 +2214,7 @@
 		919CC23C1B3772B700273FDA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/lib";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -2223,6 +2228,7 @@
 		919CC23D1B3772B700273FDA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/lib";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -2231,6 +2237,7 @@
 		91B3EF1B0F969C2300BF5B67 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -2252,6 +2259,7 @@
 		91B3EF1C0F969C2300BF5B67 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/pcedit/BoECharEd-Info.plist";
@@ -2272,6 +2280,7 @@
 		91B3EF420F969F0100BF5B67 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -2292,6 +2301,7 @@
 		91B3EF430F969F0100BF5B67 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/scenedit/BoEScenEd-Info.plist";

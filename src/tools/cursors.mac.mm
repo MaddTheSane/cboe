@@ -49,21 +49,20 @@ static NSImage* imageFromURL(CFURLRef url){
 
 Cursor::Cursor(fs::path path, float hotSpotX, float hotSpotY){
 	NSString *ref = [[NSFileManager defaultManager] stringWithFileSystemRepresentation:path.c_str() length:strlen(path.c_str())];
-	CFURLRef imgPath = (CFURLRef)[NSURL fileURLWithPath:ref];
+	CFURLRef imgPath = (__bridge CFURLRef)[NSURL fileURLWithPath:ref];
 	
 	NSImage *img = imageFromURL(imgPath);
 	NSCursor *cursor = [[NSCursor alloc] initWithImage:img hotSpot:NSMakePoint(hotSpotX, hotSpotY)];
-	[img release];
 	
-	ptr = cursor;
+	ptr = (void*)CFBridgingRetain(cursor);
 }
 
 Cursor::~Cursor(){
-	[(NSCursor*)ptr release];
+	CFBridgingRelease(ptr);
 }
 
 void Cursor::apply(){
-	[(NSCursor*)ptr set];
+	[(__bridge NSCursor*)ptr set];
 }
 
 void obscureCursor() {
