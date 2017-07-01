@@ -2006,7 +2006,7 @@
 				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
 				GCC_WARN_ABOUT_INVALID_OFFSETOF_MACRO = NO;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_CHECK_SWITCH_STATEMENTS = YES;
 				GCC_WARN_MISSING_PARENTHESES = YES;
 				GCC_WARN_NON_VIRTUAL_DESTRUCTOR = YES;
@@ -2032,7 +2032,6 @@
 					"-ferror-limit=0",
 					"-Werror=format",
 					"-ftemplate-backtrace-limit=0",
-					"-Werror=return-type",
 					"-Werror=parentheses",
 					"-Werror=dangling-else",
 					"-Werror=array-bounds",
@@ -2084,7 +2083,7 @@
 				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
 				GCC_WARN_ABOUT_INVALID_OFFSETOF_MACRO = NO;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_CHECK_SWITCH_STATEMENTS = YES;
 				GCC_WARN_MISSING_PARENTHESES = YES;
 				GCC_WARN_NON_VIRTUAL_DESTRUCTOR = YES;
@@ -2109,7 +2108,6 @@
 					"-ferror-limit=0",
 					"-Werror=format",
 					"-ftemplate-backtrace-limit=0",
-					"-Werror=return-type",
 					"-Werror=parentheses",
 					"-Werror=dangling-else",
 					"-Werror=array-bounds",
