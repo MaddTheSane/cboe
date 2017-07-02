@@ -37,7 +37,7 @@ MenuHandle apple_menu, file_menu, reg_menu, extra_menu, items_menu[4];
 static void setMenuCallback(NSMenuItem* item, id targ, SEL selector, int num) {
 	[item setTarget: targ];
 	[item setAction: selector];
-	[item setRepresentedObject: [NSNumber numberWithInt: num]];
+	[item setRepresentedObject: [[NSNumber numberWithInt: num] retain]];
 }
 
 void init_menubar() {

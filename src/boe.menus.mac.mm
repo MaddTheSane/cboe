@@ -11,7 +11,6 @@
 #include "universe.hpp" // Include before Cocoa because the Cocoa header defines things that cause compilation errors in here
 #include <Cocoa/Cocoa.h>
 #include <sstream>
-#include <string>
 #include "boe.party.hpp"
 #include "boe.infodlg.hpp"
 #include "boe.consts.hpp"
@@ -93,7 +92,7 @@ void adjust_monst_menu() {
 static void setMenuCallback(NSMenuItem* item, id targ, SEL selector, int num) {
 	[item setTarget: targ];
 	[item setAction: selector];
-	[item setRepresentedObject: [NSNumber numberWithInt: num]];
+	[item setRepresentedObject: [[NSNumber numberWithInt: num] retain]];
 }
 
 void init_menubar() {

@@ -100,7 +100,7 @@ std::string get_os_version() {
 
 void makeFrontWindow(sf::Window& win) {
 	sf::WindowHandle handle = win.getSystemHandle();
-	id nsHandle = (__bridge id)(handle);
+	id nsHandle = id(handle);
 	if([nsHandle isKindOfClass: [NSWindow class]]) {
 		[nsHandle orderFrontRegardless];
 		[nsHandle makeKeyWindow];
@@ -109,7 +109,7 @@ void makeFrontWindow(sf::Window& win) {
 
 void setWindowFloating(sf::Window& win, bool floating) {
 	sf::WindowHandle handle = win.getSystemHandle();
-	id nsHandle = (__bridge id)(handle);
+	id nsHandle = id(handle);
 	if([nsHandle isKindOfClass: [NSWindow class]]) {
 		[nsHandle setLevel: floating ? NSFloatingWindowLevel : NSNormalWindowLevel];
 	}
@@ -117,7 +117,7 @@ void setWindowFloating(sf::Window& win, bool floating) {
 
 ModalSession::ModalSession(sf::Window& win, sf::Window& /*parent*/) {
 	sf::WindowHandle handle = win.getSystemHandle();
-	id nsHandle = (__bridge id)(handle);
+	id nsHandle = id(handle);
 	if([nsHandle isKindOfClass: [NSWindow class]])
 		session = [[NSApplication sharedApplication] beginModalSessionForWindow: nsHandle];
 }
@@ -164,6 +164,8 @@ void set_clipboard_img(sf::Image& img) {
 	NSImage * image = [[NSImage alloc] initWithSize: NSMakeSize(sz.x, sz.y)];
 	[image addRepresentation: bmp];
 	NSArray* contents = [NSArray arrayWithObject: image];
+	[image release];
+	[bmp release];
 	NSPasteboard* pb = [NSPasteboard generalPasteboard];
 	[pb clearContents];
 	[pb writeObjects: contents];
@@ -178,6 +180,7 @@ std::unique_ptr<sf::Image> get_clipboard_img() {
 		return ret; // a null pointer
 	NSImage* img = [[NSImage alloc] initWithPasteboard: pb];
 	ret.reset(sfImageFromNSImage(img));
+	[img release];
 	return ret;
 }
 
@@ -209,35 +212,35 @@ void init_fileio(){
 	[dlg_get_scen setAllowedFileTypes: [NSArray arrayWithObjects: @"exs", @"boes", nil]];
 	[dlg_get_scen setMessage: @"Select a scenario to edit:"];
 	[dlg_get_scen setTitle: @"Load Scenario"];
-	//[dlg_get_scen retain];
+	[dlg_get_scen retain];
 	
 	dlg_get_game = [NSOpenPanel openPanel];
 	[dlg_get_game setAllowedFileTypes: [NSArray arrayWithObjects: @"exg", @"boe", @"SAV", @"mac", nil]];
 	[dlg_get_game setMessage: @"Select a saved game to resume:"];
 	[dlg_get_game setTitle: @"Load Game"];
-	//[dlg_get_game retain];
+	[dlg_get_game retain];
 	
 	dlg_get_rsrc = [NSOpenPanel openPanel];
 	[dlg_get_rsrc setMessage: @"Select a resource to import:"];
 	[dlg_get_rsrc setTitle: @"Import Resource"];
-	//[dlg_get_rsrc retain];
+	[dlg_get_rsrc retain];
 	
 	dlg_put_scen = [NSSavePanel savePanel];
 	[dlg_put_scen setAllowedFileTypes: [NSArray arrayWithObjects: @"boes", nil]];
 	[dlg_put_scen setMessage: @"Select a location to save the scenario:"];
 	[dlg_put_scen setTitle: @"Save Scenario"];
-	//[dlg_put_scen retain];
+	[dlg_put_scen retain];
 	
 	dlg_put_game = [NSSavePanel savePanel];
 	[dlg_put_game setAllowedFileTypes: [NSArray arrayWithObjects: @"exg", nil]];
 	[dlg_put_game setMessage: @"Select a location to save your game:"];
 	[dlg_put_game setTitle: @"Save Game"];
-	//[dlg_put_game retain];
+	[dlg_put_game retain];
 	
 	dlg_put_rsrc = [NSSavePanel savePanel];
 	[dlg_put_rsrc setMessage: @"Select a location to export the resource:"];
 	[dlg_put_rsrc setTitle: @"Export Resource"];
-	//[dlg_put_rsrc retain];
+	[dlg_put_rsrc retain];
 }
 
 fs::path nav_get_scenario() {
@@ -347,6 +350,7 @@ sf::Image* sfImageFromNSImage(NSImage *image) {
 	
 	sf::Image* sfi = new sf::Image;
 	sfi->create(width, height, (UInt8*) [rep bitmapData]);
+	[rep release];
 	
 	return sfi;
 }
