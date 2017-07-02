@@ -94,7 +94,7 @@ std::string get_os_version() {
 	NSProcessInfo* info = [NSProcessInfo processInfo];
 	std::ostringstream os;
 	os << "Apple Mac OS X ";
-	os << [[info operatingSystemVersionString] cStringUsingEncoding:NSASCIIStringEncoding];
+	os << [[info operatingSystemVersionString] UTF8String];
 	return os.str();
 }
 
@@ -163,9 +163,9 @@ void set_clipboard_img(sf::Image& img) {
 	std::copy(img.getPixelsPtr(), img.getPixelsPtr() + data_sz, [bmp bitmapData]);
 	NSImage * image = [[NSImage alloc] initWithSize: NSMakeSize(sz.x, sz.y)];
 	[image addRepresentation: bmp];
+	[bmp release];
 	NSArray* contents = [NSArray arrayWithObject: image];
 	[image release];
-	[bmp release];
 	NSPasteboard* pb = [NSPasteboard generalPasteboard];
 	[pb clearContents];
 	[pb writeObjects: contents];
@@ -174,7 +174,7 @@ void set_clipboard_img(sf::Image& img) {
 static sf::Image* sfImageFromNSImage(NSImage* inImage);
 
 std::unique_ptr<sf::Image> get_clipboard_img() {
-	std::unique_ptr<sf::Image> ret;
+	std::unique_ptr<sf::Image> ret = nullptr;
 	NSPasteboard* pb = [NSPasteboard generalPasteboard];
 	if(![NSImage canInitWithPasteboard: pb])
 		return ret; // a null pointer
@@ -247,7 +247,7 @@ fs::path nav_get_scenario() {
 	bool gotFile = [dlg_get_scen runModal] != NSFileHandlingPanelCancelButton;
 	makeFrontWindow(mainPtr);
 	if(gotFile) {
-		return fs::path([[[[dlg_get_scen URL] absoluteURL] path] fileSystemRepresentation]);
+		return fs::path([[[dlg_get_scen URL] path] fileSystemRepresentation]);
 	}
 	return "";
 }
@@ -269,7 +269,7 @@ fs::path nav_get_party() {
 	bool gotFile = [dlg_get_game runModal] != NSFileHandlingPanelCancelButton;
 	makeFrontWindow(mainPtr);
 	if(gotFile)
-		return fs::path([[[[dlg_get_game URL] absoluteURL] path] fileSystemRepresentation]);
+		return fs::path([[[dlg_get_game URL] path] fileSystemRepresentation]);
 	return "";
 }
 
@@ -282,7 +282,7 @@ fs::path nav_put_party(fs::path def) {
 	bool gotFile = [dlg_put_game runModal] != NSFileHandlingPanelCancelButton;
 	makeFrontWindow(mainPtr);
 	if(gotFile)
-		return fs::path([[[[dlg_put_game URL] absoluteURL] path] fileSystemRepresentation]);
+		return fs::path([[[dlg_put_game URL] path] fileSystemRepresentation]);
 	return "";
 }
 
@@ -295,7 +295,7 @@ fs::path nav_get_rsrc(std::initializer_list<std::string> extensions) {
 	[dlg_get_rsrc setAllowedFileTypes: allowTypes];
 	bool gotFile = [dlg_get_rsrc runModal] != NSFileHandlingPanelCancelButton;
 	if(gotFile)
-		return fs::path([[[[dlg_get_rsrc URL] absoluteURL] path] fileSystemRepresentation]);
+		return fs::path([[[dlg_get_rsrc URL] path] fileSystemRepresentation]);
 	return "";
 }
 
@@ -305,15 +305,16 @@ fs::path nav_put_rsrc(std::initializer_list<std::string> extensions, fs::path de
 		[dlg_put_rsrc setNameFieldStringValue:[NSString stringWithUTF8String: def.filename().c_str()]];
 		[dlg_put_rsrc setDirectoryURL:[NSURL fileURLWithPath:[NSString stringWithUTF8String: def.parent_path().c_str()]]];
 	}
-	NSMutableArray* allowTypes = [NSMutableArray arrayWithCapacity: extensions.size()];
+	NSMutableArray* allowTypes = [[NSMutableArray alloc] initWithCapacity: extensions.size()];
 	for(std::string ext : extensions) {
 		NSString* the_ext = [NSString stringWithUTF8String: ext.c_str()];
 		[allowTypes addObject: the_ext];
 	}
 	[dlg_put_rsrc setAllowedFileTypes: allowTypes];
+	[allowTypes release];
 	bool gotFile = [dlg_put_rsrc runModal] != NSFileHandlingPanelCancelButton;
 	if(gotFile)
-		return fs::path([[[[dlg_put_rsrc URL] absoluteURL] path] fileSystemRepresentation]);
+		return fs::path([[[dlg_put_rsrc URL] path] fileSystemRepresentation]);
 	return "";
 }
 

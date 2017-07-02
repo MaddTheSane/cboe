@@ -33,20 +33,20 @@ MenuHandle apple_menu,file_menu,extra_menu,help_menu,monster_info_menu,library_m
 MenuHandle actions_menu,music_menu,mage_spells_menu,priest_spells_menu;
 
 @interface MenuHandler : NSObject
--(void) menuChoice:(id) sender;
--(void) monstMenu:(id) sender;
--(void) spellMenu:(id) sender;
+-(IBAction) menuChoice:(id) sender;
+-(IBAction) monstMenu:(id) sender;
+-(IBAction) spellMenu:(id) sender;
 @end
 
 @interface MonsterWrapper : NSObject
 @property cMonster* monst;
-+(id) withMonster: (cMonster&) theMonster NS_RETURNS_RETAINED;
++(instancetype) withMonster: (cMonster&) theMonster NS_RETURNS_RETAINED;
 @end
 
 @interface SpellWrapper : NSObject
 @property int num;
 @property eSkill type;
-+(id) withSpell:(int) num ofType:(eSkill) type NS_RETURNS_RETAINED;
++(instancetype) withSpell:(int) num ofType:(eSkill) type NS_RETURNS_RETAINED;
 @end
 
 void hideMenuBar() {
@@ -298,7 +298,7 @@ void menu_activate() {
 @implementation MonsterWrapper
 @synthesize monst;
 
-+(id) withMonster:(cMonster&) theMonster {
++(instancetype) withMonster:(cMonster&) theMonster {
 	MonsterWrapper* wrapper = [[MonsterWrapper alloc] init];
 	[wrapper setMonst: &theMonster];
 	return wrapper;
@@ -308,7 +308,7 @@ void menu_activate() {
 @implementation SpellWrapper
 @synthesize type, num;
 
-+(id) withSpell:(int) num ofType:(eSkill) type {
++(instancetype) withSpell:(int) num ofType:(eSkill) type {
 	SpellWrapper* wrapper = [[SpellWrapper alloc] init];
 	[wrapper setType: type];
 	[wrapper setNum: num];

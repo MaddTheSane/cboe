@@ -26,6 +26,10 @@
 #include "porting.hpp"
 #include "restypes.hpp"
 
+#ifdef __APPLE__
+#include "qdpict.mac.hpp"
+#endif
+
 // Because the full template definition needs to be visible in this file
 // Also, for some reason, it's not found in the include paths, so use a relative path
 #include "../classes/town_import.tpp"
@@ -2418,7 +2422,6 @@ bool load_outdoors_v1(fs::path scen_file, location which_out,cOutdoors& the_out,
 }
 
 #ifdef __APPLE__
-bool tryLoadPictFromResourceFile(fs::path& gpath, sf::Image& graphics_store);
 #endif
 
 void load_spec_graphics_v1(fs::path scen_file) {
@@ -2435,6 +2438,7 @@ void load_spec_graphics_v1(fs::path scen_file) {
 		static sf::Image graphics_store;
 		bool foundGraphics = false;
 #ifdef __APPLE__
+		
 		fs::path gpath = path/(filename + ".meg");
 		if(fs::exists(gpath))
 			foundGraphics = tryLoadPictFromResourceFile(gpath, graphics_store);
