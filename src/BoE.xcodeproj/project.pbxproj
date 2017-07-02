@@ -100,33 +100,18 @@
 		9176FEC81D550EFE006EF694 /* scen_legacy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9176FEC11D550EFC006EF694 /* scen_legacy.cpp */; };
 		9176FECB1D550EFE006EF694 /* talk_legacy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9176FEC41D550EFD006EF694 /* talk_legacy.cpp */; };
 		9176FECC1D550EFE006EF694 /* town_legacy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9176FEC51D550EFE006EF694 /* town_legacy.cpp */; };
-		9178235D1B2EA0C5007F3444 /* vorbisenc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9178235C1B2EA0C5007F3444 /* vorbisenc.framework */; };
-		9178235E1B2EA0C5007F3444 /* vorbisenc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9178235C1B2EA0C5007F3444 /* vorbisenc.framework */; };
-		9178235F1B2EA0C5007F3444 /* vorbisenc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9178235C1B2EA0C5007F3444 /* vorbisenc.framework */; };
 		917823641B2F3226007F3444 /* vorbisenc.framework in Copy Libraries and Frameworks */ = {isa = PBXBuildFile; fileRef = 9178235C1B2EA0C5007F3444 /* vorbisenc.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		917823651B2F322B007F3444 /* vorbisenc.framework in Copy Libraries and Frameworks */ = {isa = PBXBuildFile; fileRef = 9178235C1B2EA0C5007F3444 /* vorbisenc.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		917823661B2F3231007F3444 /* vorbisenc.framework in Copy Libraries and Frameworks */ = {isa = PBXBuildFile; fileRef = 9178235C1B2EA0C5007F3444 /* vorbisenc.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		917823681B2F32DD007F3444 /* vorbisfile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 917823671B2F32DD007F3444 /* vorbisfile.framework */; };
-		917823691B2F32DD007F3444 /* vorbisfile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 917823671B2F32DD007F3444 /* vorbisfile.framework */; };
-		9178236A1B2F32DD007F3444 /* vorbisfile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 917823671B2F32DD007F3444 /* vorbisfile.framework */; };
 		9178236B1B2F32E3007F3444 /* vorbisfile.framework in Copy Libraries and Frameworks */ = {isa = PBXBuildFile; fileRef = 917823671B2F32DD007F3444 /* vorbisfile.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		9178236C1B2F32E9007F3444 /* vorbisfile.framework in Copy Libraries and Frameworks */ = {isa = PBXBuildFile; fileRef = 917823671B2F32DD007F3444 /* vorbisfile.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		9178236D1B2F32EC007F3444 /* vorbisfile.framework in Copy Libraries and Frameworks */ = {isa = PBXBuildFile; fileRef = 917823671B2F32DD007F3444 /* vorbisfile.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		9178236F1B2F331D007F3444 /* vorbis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9178236E1B2F331D007F3444 /* vorbis.framework */; };
-		917823701B2F331D007F3444 /* vorbis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9178236E1B2F331D007F3444 /* vorbis.framework */; };
-		917823711B2F331D007F3444 /* vorbis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9178236E1B2F331D007F3444 /* vorbis.framework */; };
 		917823721B2F3320007F3444 /* vorbis.framework in Copy Libraries and Frameworks */ = {isa = PBXBuildFile; fileRef = 9178236E1B2F331D007F3444 /* vorbis.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		917823731B2F3324007F3444 /* vorbis.framework in Copy Libraries and Frameworks */ = {isa = PBXBuildFile; fileRef = 9178236E1B2F331D007F3444 /* vorbis.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		917823741B2F3327007F3444 /* vorbis.framework in Copy Libraries and Frameworks */ = {isa = PBXBuildFile; fileRef = 9178236E1B2F331D007F3444 /* vorbis.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		917823761B2F334C007F3444 /* ogg.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 917823751B2F334C007F3444 /* ogg.framework */; };
-		917823771B2F334C007F3444 /* ogg.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 917823751B2F334C007F3444 /* ogg.framework */; };
-		917823781B2F334C007F3444 /* ogg.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 917823751B2F334C007F3444 /* ogg.framework */; };
 		917823791B2F334E007F3444 /* ogg.framework in Copy Libraries and Frameworks */ = {isa = PBXBuildFile; fileRef = 917823751B2F334C007F3444 /* ogg.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		9178237A1B2F3353007F3444 /* ogg.framework in Copy Libraries and Frameworks */ = {isa = PBXBuildFile; fileRef = 917823751B2F334C007F3444 /* ogg.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		9178237B1B2F3359007F3444 /* ogg.framework in Copy Libraries and Frameworks */ = {isa = PBXBuildFile; fileRef = 917823751B2F334C007F3444 /* ogg.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		9178237D1B2F33E9007F3444 /* FLAC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9178237C1B2F33E9007F3444 /* FLAC.framework */; };
-		9178237E1B2F33E9007F3444 /* FLAC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9178237C1B2F33E9007F3444 /* FLAC.framework */; };
-		9178237F1B2F33E9007F3444 /* FLAC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9178237C1B2F33E9007F3444 /* FLAC.framework */; };
 		917823801B2F33EB007F3444 /* FLAC.framework in Copy Libraries and Frameworks */ = {isa = PBXBuildFile; fileRef = 9178237C1B2F33E9007F3444 /* FLAC.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		917823811B2F33F1007F3444 /* FLAC.framework in Copy Libraries and Frameworks */ = {isa = PBXBuildFile; fileRef = 9178237C1B2F33E9007F3444 /* FLAC.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		917823821B2F33F5007F3444 /* FLAC.framework in Copy Libraries and Frameworks */ = {isa = PBXBuildFile; fileRef = 9178237C1B2F33E9007F3444 /* FLAC.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
@@ -193,9 +178,6 @@
 		919DDBFF19006CF6003E7FED /* libboost_system.dylib in Copy Libraries and Frameworks */ = {isa = PBXBuildFile; fileRef = 919DDBFB19006CC9003E7FED /* libboost_system.dylib */; };
 		919DDC0019006CF9003E7FED /* libboost_filesystem.dylib in Copy Libraries and Frameworks */ = {isa = PBXBuildFile; fileRef = 919DDBFA19006CC9003E7FED /* libboost_filesystem.dylib */; };
 		919DDC0119006CF9003E7FED /* libboost_system.dylib in Copy Libraries and Frameworks */ = {isa = PBXBuildFile; fileRef = 919DDBFB19006CC9003E7FED /* libboost_system.dylib */; };
-		919DDC0A1900750D003E7FED /* freetype.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 919DDC091900750D003E7FED /* freetype.framework */; };
-		919DDC0B1900750D003E7FED /* freetype.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 919DDC091900750D003E7FED /* freetype.framework */; };
-		919DDC0C1900750D003E7FED /* freetype.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 919DDC091900750D003E7FED /* freetype.framework */; };
 		919DDC0D19007517003E7FED /* freetype.framework in Copy Libraries and Frameworks */ = {isa = PBXBuildFile; fileRef = 919DDC091900750D003E7FED /* freetype.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		919DDC0E1900751C003E7FED /* freetype.framework in Copy Libraries and Frameworks */ = {isa = PBXBuildFile; fileRef = 919DDC091900750D003E7FED /* freetype.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		919DDC0F1900751F003E7FED /* freetype.framework in Copy Libraries and Frameworks */ = {isa = PBXBuildFile; fileRef = 919DDC091900750D003E7FED /* freetype.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
@@ -787,12 +769,6 @@
 				91F6F8E618F87F3700E3EA15 /* sfml-graphics.framework in Frameworks */,
 				91F6F8EC18F87F3700E3EA15 /* sfml-system.framework in Frameworks */,
 				91F6F8EF18F87F3700E3EA15 /* sfml-window.framework in Frameworks */,
-				919DDC0A1900750D003E7FED /* freetype.framework in Frameworks */,
-				9178235D1B2EA0C5007F3444 /* vorbisenc.framework in Frameworks */,
-				917823681B2F32DD007F3444 /* vorbisfile.framework in Frameworks */,
-				9178236F1B2F331D007F3444 /* vorbis.framework in Frameworks */,
-				917823761B2F334C007F3444 /* ogg.framework in Frameworks */,
-				9178237D1B2F33E9007F3444 /* FLAC.framework in Frameworks */,
 				910D9CA41B36439100414B17 /* libboost_thread.dylib in Frameworks */,
 				911F2D991B98F43B00E3102E /* libCommon.a in Frameworks */,
 				911F2D9E1B98F44700E3102E /* libCommon-Party.a in Frameworks */,
@@ -825,12 +801,6 @@
 				91F6F8E718F87F3700E3EA15 /* sfml-graphics.framework in Frameworks */,
 				91F6F8ED18F87F3700E3EA15 /* sfml-system.framework in Frameworks */,
 				91F6F8F018F87F3700E3EA15 /* sfml-window.framework in Frameworks */,
-				919DDC0B1900750D003E7FED /* freetype.framework in Frameworks */,
-				9178235E1B2EA0C5007F3444 /* vorbisenc.framework in Frameworks */,
-				917823691B2F32DD007F3444 /* vorbisfile.framework in Frameworks */,
-				917823701B2F331D007F3444 /* vorbis.framework in Frameworks */,
-				917823771B2F334C007F3444 /* ogg.framework in Frameworks */,
-				9178237E1B2F33E9007F3444 /* FLAC.framework in Frameworks */,
 				910D9CA51B36439100414B17 /* libboost_thread.dylib in Frameworks */,
 				911F2D9A1B98F43C00E3102E /* libCommon.a in Frameworks */,
 				911F2D9F1B98F44700E3102E /* libCommon-Party.a in Frameworks */,
@@ -849,12 +819,6 @@
 				91F6F8E818F87F3700E3EA15 /* sfml-graphics.framework in Frameworks */,
 				91F6F8EE18F87F3700E3EA15 /* sfml-system.framework in Frameworks */,
 				91F6F8F118F87F3700E3EA15 /* sfml-window.framework in Frameworks */,
-				919DDC0C1900750D003E7FED /* freetype.framework in Frameworks */,
-				9178235F1B2EA0C5007F3444 /* vorbisenc.framework in Frameworks */,
-				9178236A1B2F32DD007F3444 /* vorbisfile.framework in Frameworks */,
-				917823711B2F331D007F3444 /* vorbis.framework in Frameworks */,
-				917823781B2F334C007F3444 /* ogg.framework in Frameworks */,
-				9178237F1B2F33E9007F3444 /* FLAC.framework in Frameworks */,
 				910D9CA61B36439100414B17 /* libboost_thread.dylib in Frameworks */,
 				911F2D9B1B98F43C00E3102E /* libCommon.a in Frameworks */,
 			);
@@ -2134,7 +2098,7 @@
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = "$(SRCROOT)/BoE-Info.plist";
 				INSTALL_PATH = "$(LOCAL_APPS_DIR)/Blades Of Exile";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
@@ -2154,7 +2118,7 @@
 			buildSettings = {
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/BoE-Info.plist";
 				INSTALL_PATH = "$(LOCAL_APPS_DIR)/Blades Of Exile";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
@@ -2195,6 +2159,8 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				KEEP_PRIVATE_EXTERNS = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -2203,6 +2169,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/lib";
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				KEEP_PRIVATE_EXTERNS = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -2216,6 +2184,8 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				KEEP_PRIVATE_EXTERNS = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -2224,6 +2194,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/lib";
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				KEEP_PRIVATE_EXTERNS = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -2234,6 +2206,7 @@
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = "$(SRCROOT)/pcedit/BoECharEd-Info.plist";
 				INSTALL_PATH = "$(LOCAL_APPS_DIR)/Blades Of Exile";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
@@ -2254,6 +2227,7 @@
 			buildSettings = {
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/pcedit/BoECharEd-Info.plist";
 				INSTALL_PATH = "$(LOCAL_APPS_DIR)/Blades Of Exile";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
@@ -2275,6 +2249,7 @@
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = "$(SRCROOT)/scenedit/BoEScenEd-Info.plist";
 				INSTALL_PATH = "$(LOCAL_APPS_DIR)/Blades Of Exile";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
@@ -2294,6 +2269,7 @@
 			buildSettings = {
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/scenedit/BoEScenEd-Info.plist";
 				INSTALL_PATH = "$(LOCAL_APPS_DIR)/Blades Of Exile";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
