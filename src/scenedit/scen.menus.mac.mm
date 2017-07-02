@@ -23,10 +23,12 @@ extern cUndoList undo_list;
 -(IBAction) menuChoice:(id) sender;
 @end
 
+static MenuHandler* handler;
+
 static void setMenuCallback(NSMenuItem* item, id targ, SEL selector, int num) {
 	[item setTarget: targ];
 	[item setAction: selector];
-	[item setRepresentedObject: [[NSNumber numberWithInt: num] retain]];
+	[item setRepresentedObject: [NSNumber numberWithInt: num]];
 }
 
 void init_menubar() {
@@ -75,7 +77,7 @@ void init_menubar() {
 		eMenu::HELP_TOC, eMenu::NONE, eMenu::HELP_START, eMenu::HELP_TEST, eMenu::HELP_DIST, eMenu::NONE, eMenu::HELP_CONTEST,
 	};
 	
-	MenuHandler* handler = [[MenuHandler alloc] init];
+	handler = [[MenuHandler alloc] init];
 	setMenuCallback([app_menu itemWithTitle: @"About BoE Scenario Editor"], handler, @selector(menuChoice:), int(eMenu::ABOUT));
 	setMenuCallback([app_menu itemWithTitle: @"Quit BoE Scenario Editor"], handler, @selector(menuChoice:), int(eMenu::QUIT));
 	

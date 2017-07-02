@@ -100,7 +100,7 @@ std::string get_os_version() {
 
 void makeFrontWindow(sf::Window& win) {
 	sf::WindowHandle handle = win.getSystemHandle();
-	id nsHandle = id(handle);
+	id nsHandle = (__bridge id)(handle);
 	if([nsHandle isKindOfClass: [NSWindow class]]) {
 		[nsHandle orderFrontRegardless];
 		[nsHandle makeKeyWindow];
@@ -109,7 +109,7 @@ void makeFrontWindow(sf::Window& win) {
 
 void setWindowFloating(sf::Window& win, bool floating) {
 	sf::WindowHandle handle = win.getSystemHandle();
-	id nsHandle = id(handle);
+	id nsHandle = (__bridge id)(handle);
 	if([nsHandle isKindOfClass: [NSWindow class]]) {
 		[nsHandle setLevel: floating ? NSFloatingWindowLevel : NSNormalWindowLevel];
 	}
@@ -117,7 +117,7 @@ void setWindowFloating(sf::Window& win, bool floating) {
 
 ModalSession::ModalSession(sf::Window& win, sf::Window& /*parent*/) {
 	sf::WindowHandle handle = win.getSystemHandle();
-	id nsHandle = id(handle);
+	id nsHandle = (__bridge id)(handle);
 	if([nsHandle isKindOfClass: [NSWindow class]])
 		session = [[NSApplication sharedApplication] beginModalSessionForWindow: nsHandle];
 }
@@ -163,9 +163,7 @@ void set_clipboard_img(sf::Image& img) {
 	std::copy(img.getPixelsPtr(), img.getPixelsPtr() + data_sz, [bmp bitmapData]);
 	NSImage * image = [[NSImage alloc] initWithSize: NSMakeSize(sz.x, sz.y)];
 	[image addRepresentation: bmp];
-	[bmp release];
 	NSArray* contents = [NSArray arrayWithObject: image];
-	[image release];
 	NSPasteboard* pb = [NSPasteboard generalPasteboard];
 	[pb clearContents];
 	[pb writeObjects: contents];
@@ -180,7 +178,6 @@ std::unique_ptr<sf::Image> get_clipboard_img() {
 		return ret; // a null pointer
 	NSImage* img = [[NSImage alloc] initWithPasteboard: pb];
 	ret.reset(sfImageFromNSImage(img));
-	[img release];
 	return ret;
 }
 
@@ -189,7 +186,7 @@ void beep() {
 }
 
 void launchURL(std::string url) {
-	[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:[NSString stringWithCString:url.c_str() encoding:NSUTF8StringEncoding]]];
+	[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@(url.c_str())]];
 }
 
 int getMenubarHeight() {
@@ -197,54 +194,19 @@ int getMenubarHeight() {
 	return 0;
 }
 
-NSOpenPanel* dlg_get_scen;
-NSOpenPanel* dlg_get_game;
-NSOpenPanel* dlg_get_rsrc;
-NSSavePanel* dlg_put_scen;
-NSSavePanel* dlg_put_game;
-NSSavePanel* dlg_put_rsrc;
 extern sf::RenderWindow mainPtr;
 
-// TODO: I'm not sure if I'll need delegates to enable selection of files with no file extension that have file creator types?
-
 void init_fileio(){
-	dlg_get_scen = [NSOpenPanel openPanel];
-	[dlg_get_scen setAllowedFileTypes: [NSArray arrayWithObjects: @"exs", @"boes", nil]];
-	[dlg_get_scen setMessage: @"Select a scenario to edit:"];
-	[dlg_get_scen setTitle: @"Load Scenario"];
-	[dlg_get_scen retain];
-	
-	dlg_get_game = [NSOpenPanel openPanel];
-	[dlg_get_game setAllowedFileTypes: [NSArray arrayWithObjects: @"exg", @"boe", @"SAV", @"mac", nil]];
-	[dlg_get_game setMessage: @"Select a saved game to resume:"];
-	[dlg_get_game setTitle: @"Load Game"];
-	[dlg_get_game retain];
-	
-	dlg_get_rsrc = [NSOpenPanel openPanel];
-	[dlg_get_rsrc setMessage: @"Select a resource to import:"];
-	[dlg_get_rsrc setTitle: @"Import Resource"];
-	[dlg_get_rsrc retain];
-	
-	dlg_put_scen = [NSSavePanel savePanel];
-	[dlg_put_scen setAllowedFileTypes: [NSArray arrayWithObjects: @"boes", nil]];
-	[dlg_put_scen setMessage: @"Select a location to save the scenario:"];
-	[dlg_put_scen setTitle: @"Save Scenario"];
-	[dlg_put_scen retain];
-	
-	dlg_put_game = [NSSavePanel savePanel];
-	[dlg_put_game setAllowedFileTypes: [NSArray arrayWithObjects: @"exg", nil]];
-	[dlg_put_game setMessage: @"Select a location to save your game:"];
-	[dlg_put_game setTitle: @"Save Game"];
-	[dlg_put_game retain];
-	
-	dlg_put_rsrc = [NSSavePanel savePanel];
-	[dlg_put_rsrc setMessage: @"Select a location to export the resource:"];
-	[dlg_put_rsrc setTitle: @"Export Resource"];
-	[dlg_put_rsrc retain];
+	//Do nothing
 }
 
 fs::path nav_get_scenario() {
-	bool gotFile = [dlg_get_scen runModal] != NSFileHandlingPanelCancelButton;
+	NSOpenPanel *dlg_get_scen = [NSOpenPanel openPanel];
+	[dlg_get_scen setAllowedFileTypes: @[@"exs", @"boes", NSFileTypeForHFSTypeCode('BETM'), @"com.spidweb.bladesofexile.scenario"]];
+	[dlg_get_scen setMessage: @"Select a scenario to edit:"];
+	[dlg_get_scen setTitle: @"Load Scenario"];
+
+	bool gotFile = [dlg_get_scen runModal] == NSFileHandlingPanelOKButton;
 	makeFrontWindow(mainPtr);
 	if(gotFile) {
 		return fs::path([[[dlg_get_scen URL] path] fileSystemRepresentation]);
@@ -253,20 +215,32 @@ fs::path nav_get_scenario() {
 }
 
 fs::path nav_put_scenario(fs::path def) {
+	NSSavePanel *savePanel = [NSSavePanel savePanel];
+	[savePanel setAllowedFileTypes: @[@"com.spidweb.bladesofexile.scenario"]];
+	[savePanel setMessage: @"Select a location to save the scenario:"];
+	[savePanel setTitle: @"Save Scenario"];
+	
 	if(!def.empty()) {
-		// TODO: Hopefully requesting UTF-8 doesn't break anything...
-		[dlg_put_scen setNameFieldStringValue:[NSString stringWithUTF8String: def.filename().c_str()]];
-		[dlg_put_scen setDirectoryURL:[NSURL fileURLWithPath:[NSString stringWithUTF8String: def.parent_path().c_str()]]];
+		[savePanel setNameFieldStringValue:@(def.filename().c_str())];
+		const fs::path parPath = def.parent_path();
+		const char *parPathCStr = parPath.c_str();
+		NSString *parPathNSStr = [[NSFileManager defaultManager] stringWithFileSystemRepresentation:parPathCStr length:strlen(parPathCStr)];
+		[savePanel setDirectoryURL:[NSURL fileURLWithPath:parPathNSStr]];
 	}
-	bool gotFile = [dlg_put_scen runModal] != NSFileHandlingPanelCancelButton;
+	bool gotFile = [savePanel runModal] == NSFileHandlingPanelOKButton;
 	makeFrontWindow(mainPtr);
 	if(gotFile)
-		return fs::path([[[[dlg_put_scen URL] absoluteURL] path] fileSystemRepresentation]);
+		return fs::path([[[[savePanel URL] absoluteURL] path] fileSystemRepresentation]);
 	return "";
 }
 
 fs::path nav_get_party() {
-	bool gotFile = [dlg_get_game runModal] != NSFileHandlingPanelCancelButton;
+	NSOpenPanel *dlg_get_game = [NSOpenPanel openPanel];
+	[dlg_get_game setAllowedFileTypes: @[@"exg", @"boe", @"SAV", @"mac", NSFileTypeForHFSTypeCode('beSV'), @"com.spidweb.bladesofexile.savegame", @"com.spidweb.bladesofexile.oldwinsave", @"com.spidweb.bladesofexile.oldmacsave"]];
+	[dlg_get_game setMessage: @"Select a saved game to resume:"];
+	[dlg_get_game setTitle: @"Load Game"];
+	
+	bool gotFile = [dlg_get_game runModal] == NSFileHandlingPanelOKButton;
 	makeFrontWindow(mainPtr);
 	if(gotFile)
 		return fs::path([[[dlg_get_game URL] path] fileSystemRepresentation]);
@@ -274,12 +248,19 @@ fs::path nav_get_party() {
 }
 
 fs::path nav_put_party(fs::path def) {
+	NSSavePanel *dlg_put_game = [NSSavePanel savePanel];
+	[dlg_put_game setAllowedFileTypes: @[@"com.spidweb.bladesofexile.savegame"]];
+	[dlg_put_game setMessage: @"Select a location to save your game:"];
+	[dlg_put_game setTitle: @"Save Game"];
+	
 	if(!def.empty()) {
-		// TODO: Hopefully requesting UTF-8 doesn't break anything...
-		[dlg_put_game setNameFieldStringValue:[NSString stringWithUTF8String: def.filename().c_str()]];
-		[dlg_put_game setDirectoryURL:[NSURL fileURLWithPath:[NSString stringWithUTF8String: def.parent_path().c_str()]]];
+		[dlg_put_game setNameFieldStringValue:@(def.filename().c_str())];
+		const fs::path parPath = def.parent_path();
+		const char *parPathCStr = parPath.c_str();
+		NSString *parPathNSStr = [[NSFileManager defaultManager] stringWithFileSystemRepresentation:parPathCStr length:strlen(parPathCStr)];
+		[dlg_put_game setDirectoryURL:[NSURL fileURLWithPath:parPathNSStr]];
 	}
-	bool gotFile = [dlg_put_game runModal] != NSFileHandlingPanelCancelButton;
+	bool gotFile = [dlg_put_game runModal] == NSFileHandlingPanelOKButton;
 	makeFrontWindow(mainPtr);
 	if(gotFile)
 		return fs::path([[[dlg_put_game URL] path] fileSystemRepresentation]);
@@ -287,32 +268,41 @@ fs::path nav_put_party(fs::path def) {
 }
 
 fs::path nav_get_rsrc(std::initializer_list<std::string> extensions) {
+	NSOpenPanel *dlg_get_rsrc = [NSOpenPanel openPanel];
+	[dlg_get_rsrc setMessage: @"Select a resource to import:"];
+	[dlg_get_rsrc setTitle: @"Import Resource"];
+	
 	NSMutableArray* allowTypes = [NSMutableArray arrayWithCapacity: extensions.size()];
 	for(std::string ext : extensions) {
-		NSString* the_ext = [NSString stringWithUTF8String: ext.c_str()];
+		NSString* the_ext = @(ext.c_str());
 		[allowTypes addObject: the_ext];
 	}
 	[dlg_get_rsrc setAllowedFileTypes: allowTypes];
-	bool gotFile = [dlg_get_rsrc runModal] != NSFileHandlingPanelCancelButton;
+	bool gotFile = [dlg_get_rsrc runModal] == NSFileHandlingPanelOKButton;
 	if(gotFile)
 		return fs::path([[[dlg_get_rsrc URL] path] fileSystemRepresentation]);
 	return "";
 }
 
 fs::path nav_put_rsrc(std::initializer_list<std::string> extensions, fs::path def) {
+	NSSavePanel *dlg_put_rsrc = [NSSavePanel savePanel];
+	[dlg_put_rsrc setMessage: @"Select a location to export the resource:"];
+	[dlg_put_rsrc setTitle: @"Export Resource"];
+	
 	if(!def.empty()) {
-		// TODO: Hopefully requesting UTF-8 doesn't break anything...
-		[dlg_put_rsrc setNameFieldStringValue:[NSString stringWithUTF8String: def.filename().c_str()]];
-		[dlg_put_rsrc setDirectoryURL:[NSURL fileURLWithPath:[NSString stringWithUTF8String: def.parent_path().c_str()]]];
+		[dlg_put_rsrc setNameFieldStringValue:@(def.filename().c_str())];
+		const fs::path parPath = def.parent_path();
+		const char *parPathCStr = parPath.c_str();
+		NSString *parPathNSStr = [[NSFileManager defaultManager] stringWithFileSystemRepresentation:parPathCStr length:strlen(parPathCStr)];
+		[dlg_put_rsrc setDirectoryURL:[NSURL fileURLWithPath:parPathNSStr]];
 	}
 	NSMutableArray* allowTypes = [[NSMutableArray alloc] initWithCapacity: extensions.size()];
 	for(std::string ext : extensions) {
-		NSString* the_ext = [NSString stringWithUTF8String: ext.c_str()];
+		NSString* the_ext = @(ext.c_str());
 		[allowTypes addObject: the_ext];
 	}
 	[dlg_put_rsrc setAllowedFileTypes: allowTypes];
-	[allowTypes release];
-	bool gotFile = [dlg_put_rsrc runModal] != NSFileHandlingPanelCancelButton;
+	bool gotFile = [dlg_put_rsrc runModal] == NSFileHandlingPanelOKButton;
 	if(gotFile)
 		return fs::path([[[dlg_put_rsrc URL] path] fileSystemRepresentation]);
 	return "";
@@ -351,7 +341,6 @@ sf::Image* sfImageFromNSImage(NSImage *image) {
 	
 	sf::Image* sfi = new sf::Image;
 	sfi->create(width, height, (UInt8*) [rep bitmapData]);
-	[rep release];
 	
 	return sfi;
 }

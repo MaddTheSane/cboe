@@ -34,10 +34,12 @@ MenuHandle apple_menu, file_menu, reg_menu, extra_menu, items_menu[4];
 -(void) setItem:(int) theItem;
 @end
 
+static MenuHandler* handler;
+
 static void setMenuCallback(NSMenuItem* item, id targ, SEL selector, int num) {
 	[item setTarget: targ];
 	[item setAction: selector];
-	[item setRepresentedObject: [[NSNumber numberWithInt: num] retain]];
+	[item setRepresentedObject: [NSNumber numberWithInt: num]];
 }
 
 void init_menubar() {
@@ -72,7 +74,7 @@ void init_menubar() {
 		eMenu::NONE, eMenu::LEAVE_SCENARIO, eMenu::SET_SDF,
 	};
 	
-	MenuHandler* handler = [[MenuHandler alloc] init];
+	handler = [[MenuHandler alloc] init];
 	setMenuCallback([apple_menu itemWithTitle: @"About BoE Character Editor"], handler, @selector(menuChoice:), int(eMenu::ABOUT));
 	setMenuCallback([apple_menu itemWithTitle: @"Quit BoE Character Editor"], handler, @selector(menuChoice:), int(eMenu::QUIT));
 	setMenuCallback([[[menu_bar_handle itemWithTitle: @"Help"] submenu] itemAtIndex: 0], handler, @selector(menuChoice:), int(eMenu::HELP_TOC));
@@ -125,13 +127,13 @@ void update_item_menu() {
 }
 
 @implementation MenuHandler
--(void) itemMenu:(id) sender {
+-(IBAction) itemMenu:(id) sender {
 	ItemWrapper* item = [sender representedObject];
 	class cItem& theItem = [item item];
 	handle_item_menu(theItem);
 }
 
--(void) menuChoice:(id) sender {
+-(IBAction) menuChoice:(id) sender {
 	eMenu opt = eMenu([[sender representedObject] intValue]);
 	handle_menu_choice(opt);
 }
@@ -148,11 +150,11 @@ void update_item_menu() {
 }
 
 -(void) setItem:(int) theItem {
-	self->itemID = theItem;
+	itemID = theItem;
 }
 
 -(class cItem&) item {
-	return univ.scenario.scen_items[self->itemID];
+	return univ.scenario.scen_items[itemID];
 }
 
 @end

@@ -242,6 +242,49 @@
 				</array>
 			</dict>
 		</dict>
+		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.data</string>
+			</array>
+			<key>UTTypeDescription</key>
+			<string>Blades of Exile Saved Game (legacy, Windows)</string>
+			<key>UTTypeIconFile</key>
+			<string>boesave</string>
+			<key>UTTypeIdentifier</key>
+			<string>com.spidweb.bladesofexile.oldwinsave</string>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.filename-extension</key>
+				<array>
+					<string>sav</string>
+				</array>
+			</dict>
+		</dict>
+		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.data</string>
+			</array>
+			<key>UTTypeDescription</key>
+			<string>Blades of Exile Saved Game (legacy, Macintosh)</string>
+			<key>UTTypeIconFile</key>
+			<string>boesave</string>
+			<key>UTTypeIdentifier</key>
+			<string>com.spidweb.bladesofexile.oldmacsave</string>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>com.apple.ostype</key>
+				<array>
+					<string>beSV</string>
+				</array>
+				<key>public.filename-extension</key>
+				<array>
+					<string>boe</string>
+					<string>mac</string>
+				</array>
+			</dict>
+		</dict>
 	</array>
 </dict>
 </plist>
