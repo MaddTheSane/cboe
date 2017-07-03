@@ -25,10 +25,10 @@ extern fs::path progDir, tempDir;
 extern cCustomGraphics spec_scen_g;
 
 // Load saved games
-static bool load_party_v1(fs::path file_to_load, cUniverse& univ, bool town_restore, bool in_scen, bool maps_there, bool must_port);
-static bool load_party_v2(fs::path file_to_load, cUniverse& univ);
+static bool load_party_v1(const fs::path &file_to_load, cUniverse& univ, bool town_restore, bool in_scen, bool maps_there, bool must_port);
+static bool load_party_v2(const fs::path &file_to_load, cUniverse& univ);
 
-bool load_party(fs::path file_to_load, cUniverse& univ){
+bool load_party(const fs::path &file_to_load, cUniverse& univ){
 	bool town_restore = false;
 	bool maps_there = false;
 	bool in_scen = false;
@@ -131,7 +131,7 @@ bool load_party(fs::path file_to_load, cUniverse& univ){
 	return true;
 }
 
-bool load_party_v1(fs::path file_to_load, cUniverse& real_univ, bool town_restore, bool in_scen, bool maps_there, bool must_port){
+bool load_party_v1(const fs::path &file_to_load, cUniverse& real_univ, bool town_restore, bool in_scen, bool maps_there, bool must_port){
 	std::ifstream fin(file_to_load.c_str(), std::ios_base::binary);
 	fin.seekg(3*sizeof(short),std::ios_base::beg); // skip the header, which is 6 bytes in the old format
 	
@@ -272,7 +272,7 @@ bool load_party_v1(fs::path file_to_load, cUniverse& real_univ, bool town_restor
 }
 
 extern fs::path scenDir;
-bool load_party_v2(fs::path file_to_load, cUniverse& real_univ){
+bool load_party_v2(const fs::path &file_to_load, cUniverse& real_univ){
 	igzstream zin(file_to_load.string().c_str());
 	tarball partyIn;
 	partyIn.readFrom(zin);
@@ -414,17 +414,17 @@ bool save_party(fs::path dest_file, const cUniverse& univ) {
 	
 	// Then write the data for each of the party members
 	for(int i = 0; i < 6; i++) {
-		static char fname[] = "save/pc1.txt";
-		fname[7] = i + '1';
-		univ.party[i].writeTo(partyOut.newFile(fname));
+		static char fname2[] = "save/pc1.txt";
+		fname2[7] = i + '1';
+		univ.party[i].writeTo(partyOut.newFile(fname2));
 	}
 	
 	// And stored PCs
 	if(univ.stored_pcs.size()) {
 		std::ostream& fout = partyOut.newFile("save/stored_pcs.txt");
 		for(auto p : univ.stored_pcs) {
-			std::string fname = "save/pc~" + std::to_string(p.first) + ".txt";
-			p.second->writeTo(partyOut.newFile(fname));
+			std::string fname3 = "save/pc~" + std::to_string(p.first) + ".txt";
+			p.second->writeTo(partyOut.newFile(fname3));
 			fout << p.first << '\n';
 		}
 	}
