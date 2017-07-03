@@ -209,7 +209,7 @@ fs::path nav_get_scenario() {
 	bool gotFile = [dlg_get_scen runModal] == NSFileHandlingPanelOKButton;
 	makeFrontWindow(mainPtr);
 	if(gotFile) {
-		return fs::path([[[dlg_get_scen URL] path] fileSystemRepresentation]);
+		return fs::path([[dlg_get_scen URL] fileSystemRepresentation]);
 	}
 	return "";
 }
@@ -230,7 +230,7 @@ fs::path nav_put_scenario(fs::path def) {
 	bool gotFile = [savePanel runModal] == NSFileHandlingPanelOKButton;
 	makeFrontWindow(mainPtr);
 	if(gotFile)
-		return fs::path([[[[savePanel URL] absoluteURL] path] fileSystemRepresentation]);
+		return fs::path([[[savePanel URL] absoluteURL] fileSystemRepresentation]);
 	return "";
 }
 
@@ -243,7 +243,7 @@ fs::path nav_get_party() {
 	bool gotFile = [dlg_get_game runModal] == NSFileHandlingPanelOKButton;
 	makeFrontWindow(mainPtr);
 	if(gotFile)
-		return fs::path([[[dlg_get_game URL] path] fileSystemRepresentation]);
+		return fs::path([[dlg_get_game URL] fileSystemRepresentation]);
 	return "";
 }
 
@@ -263,7 +263,7 @@ fs::path nav_put_party(fs::path def) {
 	bool gotFile = [dlg_put_game runModal] == NSFileHandlingPanelOKButton;
 	makeFrontWindow(mainPtr);
 	if(gotFile)
-		return fs::path([[[dlg_put_game URL] path] fileSystemRepresentation]);
+		return fs::path([[dlg_put_game URL] fileSystemRepresentation]);
 	return "";
 }
 
@@ -280,7 +280,7 @@ fs::path nav_get_rsrc(std::initializer_list<std::string> extensions) {
 	[dlg_get_rsrc setAllowedFileTypes: allowTypes];
 	bool gotFile = [dlg_get_rsrc runModal] == NSFileHandlingPanelOKButton;
 	if(gotFile)
-		return fs::path([[[dlg_get_rsrc URL] path] fileSystemRepresentation]);
+		return fs::path([[dlg_get_rsrc URL] fileSystemRepresentation]);
 	return "";
 }
 
@@ -304,7 +304,7 @@ fs::path nav_put_rsrc(std::initializer_list<std::string> extensions, fs::path de
 	[dlg_put_rsrc setAllowedFileTypes: allowTypes];
 	bool gotFile = [dlg_put_rsrc runModal] == NSFileHandlingPanelOKButton;
 	if(gotFile)
-		return fs::path([[[dlg_put_rsrc URL] path] fileSystemRepresentation]);
+		return fs::path([[dlg_put_rsrc URL] fileSystemRepresentation]);
 	return "";
 }
 
