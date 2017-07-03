@@ -205,6 +205,7 @@ fs::path nav_get_scenario() {
 	[dlg_get_scen setAllowedFileTypes: @[@"exs", @"boes", NSFileTypeForHFSTypeCode('BETM'), @"com.spidweb.bladesofexile.scenario"]];
 	[dlg_get_scen setMessage: @"Select a scenario to edit:"];
 	[dlg_get_scen setTitle: @"Load Scenario"];
+	dlg_get_scen.allowsMultipleSelection = NO;
 
 	bool gotFile = [dlg_get_scen runModal] == NSFileHandlingPanelOKButton;
 	makeFrontWindow(mainPtr);
@@ -239,6 +240,7 @@ fs::path nav_get_party() {
 	[dlg_get_game setAllowedFileTypes: @[@"exg", @"boe", @"SAV", @"mac", NSFileTypeForHFSTypeCode('beSV'), @"com.spidweb.bladesofexile.savegame", @"com.spidweb.bladesofexile.oldwinsave", @"com.spidweb.bladesofexile.oldmacsave"]];
 	[dlg_get_game setMessage: @"Select a saved game to resume:"];
 	[dlg_get_game setTitle: @"Load Game"];
+	dlg_get_game.allowsMultipleSelection = NO;
 	
 	bool gotFile = [dlg_get_game runModal] == NSFileHandlingPanelOKButton;
 	makeFrontWindow(mainPtr);
@@ -271,8 +273,9 @@ fs::path nav_get_rsrc(std::initializer_list<std::string> extensions) {
 	NSOpenPanel *dlg_get_rsrc = [NSOpenPanel openPanel];
 	[dlg_get_rsrc setMessage: @"Select a resource to import:"];
 	[dlg_get_rsrc setTitle: @"Import Resource"];
-	
-	NSMutableArray* allowTypes = [NSMutableArray arrayWithCapacity: extensions.size()];
+	dlg_get_rsrc.allowsMultipleSelection = NO;
+
+	NSMutableArray* allowTypes = [[NSMutableArray alloc] initWithCapacity: extensions.size()];
 	for(std::string ext : extensions) {
 		NSString* the_ext = @(ext.c_str());
 		[allowTypes addObject: the_ext];
