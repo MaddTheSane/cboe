@@ -233,7 +233,7 @@ bool load_party_v1(fs::path file_to_load, cUniverse& real_univ, bool town_restor
 		
 		if(!load_scenario(path, univ.scenario))
 			return false;
-		univ.file = path;
+		univ.file = ""; // force the user save the game as another file
 	}else{
 		univ.party.scen_name = "";
 	}
@@ -279,6 +279,7 @@ bool load_party_v2(fs::path file_to_load, cUniverse& real_univ){
 	zin.close();
 	
 	cUniverse univ;
+	univ.file = file_to_load;
 	
 	{ // Load main party data first
 		std::istream& fin = partyIn.getFile("save/party.txt");
