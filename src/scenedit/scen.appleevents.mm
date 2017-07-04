@@ -44,12 +44,7 @@ void set_up_apple_events(int, char*[]) {
 		return FALSE;
 	}
 	
-	//unsigned long len = [file length], sz = len + 1;
-	//auto msg = std::shared_ptr<unichar>(new unichar[sz], std::default_delete<unichar[]>());
-	//std::fill(msg.get(), msg.get() + sz, 0);
-	//[file getCharacters: msg.get() range: (NSRange){0, len}];
 	std::string fileName = file.fileSystemRepresentation;
-	//std::copy(msg.get(), msg.get() + len, std::inserter(fileName, fileName.begin()));
 	
 	if(load_scenario(fileName, scenario)) {
 		set_current_town(scenario.last_town_edited);

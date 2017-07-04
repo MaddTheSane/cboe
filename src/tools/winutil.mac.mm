@@ -216,22 +216,22 @@ fs::path nav_get_scenario() {
 }
 
 fs::path nav_put_scenario(fs::path def) {
-	NSSavePanel *savePanel = [NSSavePanel savePanel];
-	[savePanel setAllowedFileTypes: @[@"com.spidweb.bladesofexile.scenario"]];
-	[savePanel setMessage: @"Select a location to save the scenario:"];
-	[savePanel setTitle: @"Save Scenario"];
+	NSSavePanel *dlg_put_scen = [NSSavePanel savePanel];
+	[dlg_put_scen setAllowedFileTypes: @[@"com.spidweb.bladesofexile.scenario"]];
+	[dlg_put_scen setMessage: @"Select a location to save the scenario:"];
+	[dlg_put_scen setTitle: @"Save Scenario"];
 	
 	if(!def.empty()) {
-		[savePanel setNameFieldStringValue:@(def.filename().c_str())];
+		[dlg_put_scen setNameFieldStringValue:@(def.filename().c_str())];
 		const fs::path parPath = def.parent_path();
 		const char *parPathCStr = parPath.c_str();
 		NSString *parPathNSStr = [[NSFileManager defaultManager] stringWithFileSystemRepresentation:parPathCStr length:strlen(parPathCStr)];
-		[savePanel setDirectoryURL:[NSURL fileURLWithPath:parPathNSStr]];
+		[dlg_put_scen setDirectoryURL:[NSURL fileURLWithPath:parPathNSStr]];
 	}
-	bool gotFile = [savePanel runModal] == NSFileHandlingPanelOKButton;
+	bool gotFile = [dlg_put_scen runModal] == NSFileHandlingPanelOKButton;
 	makeFrontWindow(mainPtr);
 	if(gotFile)
-		return fs::path([[[savePanel URL] absoluteURL] fileSystemRepresentation]);
+		return fs::path([[[dlg_put_scen URL] absoluteURL] fileSystemRepresentation]);
 	return "";
 }
 

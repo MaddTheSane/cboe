@@ -47,12 +47,7 @@ void set_up_apple_events(int, char*[]) {
 		return FALSE;
 	}
 	
-	unsigned long len = [file length], sz = len + 1;
-	auto msg = std::shared_ptr<unichar>(new unichar[sz], std::default_delete<unichar[]>());
-	std::fill(msg.get(), msg.get() + sz, 0);
-	[file getCharacters: msg.get() range: (NSRange){0, len}];
-	std::string fileName;
-	std::copy(msg.get(), msg.get() + len, std::inserter(fileName, fileName.begin()));
+	std::string fileName = file.fileSystemRepresentation;
 	
 	if(!load_party(fileName, univ))
 		return FALSE;
