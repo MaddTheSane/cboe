@@ -2421,9 +2421,6 @@ bool load_outdoors_v1(fs::path scen_file, location which_out,cOutdoors& the_out,
 	return true;
 }
 
-#ifdef __APPLE__
-#endif
-
 void load_spec_graphics_v1(fs::path scen_file) {
 	static const char*const noGraphics = "The game will still work without the custom graphics, but some things will not look right.";
 	fs::remove_all(tempDir/scenario_temp_dir_name/"graphics");

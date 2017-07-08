@@ -523,6 +523,7 @@
 		551451EC1F116EB800F91527 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		551451F11F11711400F91527 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		551451F81F11727100F91527 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		551451FA1F11779600F91527 /* boe.prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = boe.prefix.pch; sourceTree = "<group>"; };
 		554E14AC1F08F64D009996FF /* qdpict.mac.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = qdpict.mac.hpp; sourceTree = "<group>"; };
 		91034D201B225E49008F01C1 /* scen.appleevents.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = scen.appleevents.mm; sourceTree = "<group>"; };
 		910BBA170FB8BECA001E34EA /* dialog.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = dialog.hpp; sourceTree = "<group>"; };
@@ -1370,6 +1371,7 @@
 				2BF04B080BF51924006C0831 /* boe.text.hpp */,
 				2BF04B0A0BF51924006C0831 /* boe.town.hpp */,
 				2BF04AD60BF51923006C0831 /* boe.townspec.hpp */,
+				551451FA1F11779600F91527 /* boe.prefix.pch */,
 			);
 			name = headers;
 			sourceTree = "<group>";
@@ -2012,6 +2014,8 @@
 				GCC_INPUT_FILETYPE = automatic;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = boe.prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = TIXML_USE_TICPP;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
@@ -2090,6 +2094,8 @@
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_INPUT_FILETYPE = automatic;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = boe.prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = TIXML_USE_TICPP;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;

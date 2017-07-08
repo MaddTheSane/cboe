@@ -13,14 +13,14 @@
 #include <unistd.h>
 #endif
 
-using namespace legacy;
+//using namespace legacy;
 
 #define STRUCT_INFO(what) \
-	what temp_##what; \
+	legacy:: what temp_##what; \
 	log << #what << ": " << sizeof(temp_##what) << " bytes" << std::endl
 #define MEM_INFO(what,member) \
 	log << "   " << #member << ": " << sizeof(temp_##what . member) << " bytes, offset " \
-		<< offsetof(what,member) << std::endl
+		<< offsetof(legacy:: what,member) << std::endl
 
 #ifdef _MSC_VER
 #pragma warning(push)

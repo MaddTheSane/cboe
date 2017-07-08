@@ -1,0 +1,25 @@
+//
+//  boe.prefix.pch
+//  BoE
+//
+//  Created by C.W. Betts on 7/8/17.
+//
+//
+
+#ifndef boe_prefix_pch
+#define boe_prefix_pch
+
+#ifdef __cplusplus
+#include "universe.hpp" // Include before Cocoa because the Cocoa header defines things that cause compilation errors in here
+#endif
+#ifdef __OBJC__
+#include <Cocoa/Cocoa.h>
+#endif
+#ifdef __cplusplus
+#include "tarball.hpp"
+#include "restypes.hpp"
+#include "oldstructs.hpp"
+#endif
+
+
+#endif /* boe_prefix_pch */
