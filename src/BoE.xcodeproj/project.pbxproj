@@ -54,6 +54,11 @@
 		2BF04B2C0BF51924006C0831 /* boe.startup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BF04B050BF51924006C0831 /* boe.startup.cpp */; };
 		2BF04B2D0BF51924006C0831 /* boe.text.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BF04B070BF51924006C0831 /* boe.text.cpp */; };
 		2BF04B2E0BF51924006C0831 /* boe.town.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BF04B090BF51924006C0831 /* boe.town.cpp */; };
+		551451EB1F116EB800F91527 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 551451ED1F116EB800F91527 /* InfoPlist.strings */; };
+		551451F01F11711400F91527 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 551451F21F11711400F91527 /* InfoPlist.strings */; };
+		551451F31F11723600F91527 /* boesave.icns in Resources */ = {isa = PBXBuildFile; fileRef = 91279BB30F9D03B6007B0D52 /* boesave.icns */; };
+		551451F41F11723A00F91527 /* boescenario.icns in Resources */ = {isa = PBXBuildFile; fileRef = 91279BAD0F9CFCBA007B0D52 /* boescenario.icns */; };
+		551451F71F11727100F91527 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 551451F91F11727100F91527 /* InfoPlist.strings */; };
 		91034D211B225E4A008F01C1 /* scen.appleevents.mm in Sources */ = {isa = PBXBuildFile; fileRef = 91034D201B225E49008F01C1 /* scen.appleevents.mm */; };
 		910D9CA41B36439100414B17 /* libboost_thread.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 910D9CA31B36439100414B17 /* libboost_thread.dylib */; };
 		910D9CA51B36439100414B17 /* libboost_thread.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 910D9CA31B36439100414B17 /* libboost_thread.dylib */; };
@@ -515,6 +520,9 @@
 		2BF04B080BF51924006C0831 /* boe.text.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = boe.text.hpp; sourceTree = "<group>"; };
 		2BF04B090BF51924006C0831 /* boe.town.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = boe.town.cpp; sourceTree = "<group>"; wrapsLines = 1; };
 		2BF04B0A0BF51924006C0831 /* boe.town.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = boe.town.hpp; sourceTree = "<group>"; };
+		551451EC1F116EB800F91527 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		551451F11F11711400F91527 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		551451F81F11727100F91527 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		554E14AC1F08F64D009996FF /* qdpict.mac.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = qdpict.mac.hpp; sourceTree = "<group>"; };
 		91034D201B225E49008F01C1 /* scen.appleevents.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = scen.appleevents.mm; sourceTree = "<group>"; };
 		910BBA170FB8BECA001E34EA /* dialog.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = dialog.hpp; sourceTree = "<group>"; };
@@ -1121,6 +1129,7 @@
 				91B3EED90F969BA700BF5B67 /* BoEScenEd-Info.plist */,
 				91B3EEDB0F969BA700BF5B67 /* BoEScenEd.icns */,
 				914CA49F190C4E9200B6ADD1 /* scenedit.xib */,
+				551451F91F11727100F91527 /* InfoPlist.strings */,
 			);
 			name = rsrc;
 			path = ../rsrc;
@@ -1202,6 +1211,7 @@
 				91B3EF130F969BD300BF5B67 /* BoECharEd-Info.plist */,
 				91B3EF110F969BD300BF5B67 /* BoECharEd.icns */,
 				91FCC8D718FE28CC007026CE /* pcedit.xib */,
+				551451F21F11711400F91527 /* InfoPlist.strings */,
 			);
 			name = rsrc;
 			path = ../rsrc;
@@ -1374,6 +1384,7 @@
 				91279BB30F9D03B6007B0D52 /* boesave.icns */,
 				91279BB40F9D03B7007B0D52 /* boesounds.icns */,
 				9192C11E18F271920088A580 /* game.xib */,
+				551451ED1F116EB800F91527 /* InfoPlist.strings */,
 			);
 			name = rsrc;
 			path = ../rsrc;
@@ -1566,9 +1577,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				91D634560F8FD77800674AB3 /* BoE.icns in Resources */,
+				551451EB1F116EB800F91527 /* InfoPlist.strings in Resources */,
 				91279BB60F9D03B7007B0D52 /* boesave.icns in Resources */,
 				91279BB70F9D03B7007B0D52 /* boesounds.icns in Resources */,
 				91279BB80F9D03B7007B0D52 /* boegraphics.icns in Resources */,
+				551451F41F11723A00F91527 /* boescenario.icns in Resources */,
 				913D6C050FC57A8E00E12527 /* boeresources.icns in Resources */,
 				9192C12018F2745C0088A580 /* game.xib in Resources */,
 			);
@@ -1578,7 +1591,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				551451F31F11723600F91527 /* boesave.icns in Resources */,
 				91B3EF1F0F969C9C00BF5B67 /* BoECharEd.icns in Resources */,
+				551451F01F11711400F91527 /* InfoPlist.strings in Resources */,
 				91FCC8D818FE28CC007026CE /* pcedit.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1588,6 +1603,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				91B3EF470F969F1700BF5B67 /* BoEScenEd.icns in Resources */,
+				551451F71F11727100F91527 /* InfoPlist.strings in Resources */,
 				91279BAE0F9CFCBA007B0D52 /* boescenario.icns in Resources */,
 				91870F84190C90980081C150 /* scenedit.xib in Resources */,
 			);
@@ -1936,6 +1952,35 @@
 			targetProxy = 91EBE9E10F9A33AC002356F2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		551451ED1F116EB800F91527 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				551451EC1F116EB800F91527 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = SOURCE_ROOT;
+		};
+		551451F21F11711400F91527 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				551451F11F11711400F91527 /* en */,
+			);
+			name = InfoPlist.strings;
+			path = pcedit;
+			sourceTree = SOURCE_ROOT;
+		};
+		551451F91F11727100F91527 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				551451F81F11727100F91527 /* en */,
+			);
+			name = InfoPlist.strings;
+			path = scenedit;
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		2BF04AA30BF51845006C0831 /* Debug */ = {

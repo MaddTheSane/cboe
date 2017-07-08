@@ -1,0 +1,18 @@
+/* 
+  InfoPlist.strings
+  BoE
+
+  Created by C.W. Betts on 7/8/17.
+
+*/
+
+CFBundleName = "Blades of Exile";
+"com.spidweb.bladesofexile.scenario" = "Blades of Exile Scenario";
+"com.spidweb.bladesofexile.savegame" = "Blades of Exile Saved Game";
+"com.spidweb.bladesofexile.oldgraphics" = "Blades of Exile Scenario Graphics";
+"com.spidweb.bladesofexile.oldmacsave" = "Blades of Exile Saved Game (legacy, Macintosh)";
+"com.spidweb.bladesofexile.oldwinsave" = "Blades of Exile Saved Game (legacy, Windows)";
+"LegacyWinSaveGame" = "Blades of Exile Saved Game (legacy, Windows)";
+"LegacyMacSaveGame" = "Blades of Exile Saved Game (legacy, Macintosh)";
+"Blades of Exile Saved Game" = "Blades of Exile Saved Game";
+"Blades of Exile Scenario" = "Blades of Exile Scenario";

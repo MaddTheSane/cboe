@@ -40,9 +40,9 @@ int get_int_pref(std::string keypath, int fallback) {
 void append_iarray_pref(std::string keypath, int value) {
 	NSString* key = convertKey(keypath);
 	NSArray* list = [[NSUserDefaults standardUserDefaults] arrayForKey: key];
-	NSNumber* num = [NSNumber numberWithInt: value];
+	NSNumber* num = @(value);
 	if(list == nil)
-		[[NSUserDefaults standardUserDefaults] setObject: [NSArray arrayWithObject: num] forKey: key] ;
+		[[NSUserDefaults standardUserDefaults] setObject: @[num] forKey: key] ;
 	else [[NSUserDefaults standardUserDefaults] setObject: [list arrayByAddingObject: num] forKey: key];
 }
 
@@ -50,8 +50,8 @@ std::vector<int> get_iarray_pref(std::string keypath) {
 	NSArray* list = [[NSUserDefaults standardUserDefaults] arrayForKey: convertKey(keypath)];
 	if(list == nil) return {};
 	std::vector<int> result;
-	for(size_t i = 0; i < [list count]; i++)
-		result.push_back([[list objectAtIndex: i] intValue]);
+	for(NSNumber *num in list)
+		result.push_back([num intValue]);
 	return result;
 }
 

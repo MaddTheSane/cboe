@@ -16,7 +16,7 @@
 			<key>CFBundleTypeName</key>
 			<string>LegacyWinSaveGame</string>
 			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
+			<string>Viewer</string>
 			<key>LSItemContentTypes</key>
 			<array>
 				<string>com.spidweb.bladesofexile.oldwinsave</string>
@@ -41,7 +41,7 @@
 				<string>beSV</string>
 			</array>
 			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
+			<string>Viewer</string>
 			<key>LSItemContentTypes</key>
 			<array>
 				<string>com.spidweb.bladesofexile.oldmacsave</string>
@@ -172,6 +172,26 @@
 	<string>$(MACOSX_DEPLOYMENT_TARGET)</string>
 	<key>UTExportedTypeDeclarations</key>
 	<array>
+		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.xml</string>
+				<string>public.data</string>
+			</array>
+			<key>UTTypeDescription</key>
+			<string>Blades of Exile Encounter Dialog</string>
+			<key>UTTypeIconFile</key>
+			<string>boeresources</string>
+			<key>UTTypeIdentifier</key>
+			<string>com.spidweb.bladesofexile.dialog</string>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.filename-extension</key>
+				<array>
+					<string>dlg</string>
+				</array>
+			</dict>
+		</dict>
 		<dict>
 			<key>UTTypeConformsTo</key>
 			<array>
