@@ -231,7 +231,7 @@ fs::path nav_put_scenario(fs::path def) {
 	bool gotFile = [dlg_put_scen runModal] == NSFileHandlingPanelOKButton;
 	makeFrontWindow(mainPtr);
 	if(gotFile)
-		return fs::path([[[dlg_put_scen URL] absoluteURL] fileSystemRepresentation]);
+		return fs::path([[dlg_put_scen URL] fileSystemRepresentation]);
 	return "";
 }
 
